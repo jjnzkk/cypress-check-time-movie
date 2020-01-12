@@ -4,7 +4,7 @@ const nowTime = Cypress.moment().format('HH:mm')
 const expectTime = Cypress.moment()
   .add(1, 'hours')
   .format('HH:mm')
-const nameMovie = 'The Nutcracker and the Four Realms'
+const nameMovie = 'Ashfall'
 const locationMovie = 'SFX CINEMA Central Rama 9'
 
 describe('Check Time Movie', () => {
@@ -47,7 +47,7 @@ describe('Check Time Movie', () => {
       .children()
     cy.get('[class="time-list"]>li').each($list => {
       if (
-        $list.get(0).innerText >=  nowTime &&
+        $list.get(0).innerText >= nowTime &&
         $list.get(0).innerText <= expectTime
       ) {
         cy.wrap($list.children()).click()
@@ -56,6 +56,6 @@ describe('Check Time Movie', () => {
     })
   })
   it('Check Page Change', () => {
-     cy.contains('Selected Seat')
+    cy.contains('Selected Seat')
   })
 })
